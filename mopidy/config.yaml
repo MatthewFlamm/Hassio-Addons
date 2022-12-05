@@ -27,6 +27,9 @@ ports_description:
   6680/tcp: Web Frontend
   6600/tcp: MDP Connection
 options:
+  networkdisks: test
+  cifsusername: guest
+  cifspassword: change_me
   media_folder: /media/mopidy/media
   playlist_folder: /media/mopidy/playlists
   locale: en_US
@@ -36,6 +39,9 @@ options:
     favorite_radiostations:
       - radiobob
 schema:
+  networkdisks: str
+  cifsusername: str
+  cifspassword: str
   media_folder: match(/share/.+|/media/.+|(smb|nfs)://.+)
   playlist_folder: match(/share/.+|/media/.+|(smb|nfs)://.+)
   custom_config: match(/share/mopidy/.+)?
