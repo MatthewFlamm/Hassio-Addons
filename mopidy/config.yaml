@@ -12,7 +12,6 @@ arch:
   - i386
 homeassistant: 0.115.0
 startup: system
-image: ghcr.io/poeschl/ha-mopidy-{arch}
 init: false
 audio: true
 devices:
