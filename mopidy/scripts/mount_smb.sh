@@ -46,11 +46,6 @@ for disk in ${MOREDISKS//,/ }; do # Separate comma separated values
         bashio::log.info "... $disk successfully mounted to /mnt/$diskname with options $SMBVERS$SECVERS" ||
         bashio::log.fatal "Disk is mounted, however unable to write in the shared disk. Please check UID/GID for permissions, and if the share is rw"
 
-        # Test for serverino
-        # shellcheck disable=SC2015
-        touch "/mnt/$diskname/testaze" && mv "/mnt/$diskname/testaze" "/mnt/$diskname/testaze2" && rm "/mnt/$diskname/testaze2" ||
-        (umount "/mnt/$diskname" && mount -t cifs -o "rw,file_mode=0775,dir_mode=0775,username=$CIFS_USERNAME,password=${CIFS_PASSWORD}$SMBVERS$SECVERS,noserverino" "$disk" /mnt/"$diskname" && bashio::log.warning "noserverino option used")
-
     else
         # Mounting failed messages
         bashio::log.fatal "Error, unable to mount $disk to /mnt/$diskname with username $CIFS_USERNAME, $CIFS_PASSWORD. Please check your remote share path, username, password, domain, try putting 0 in UID and GID"
