@@ -2,6 +2,10 @@
 # shellcheck shell=bash
 # shellcheck disable=
 
+
+# Modified From https://github.com/alexbelgium/hassio-addons/blob/master/.templates/92-smb_mounts.sh
+# MIT license: https://github.com/alexbelgium/hassio-addons/blob/master/LICENSE
+
 #########################
 # MOUNT SMB SHARES v1.6 #
 #########################
