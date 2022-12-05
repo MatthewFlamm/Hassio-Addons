@@ -36,6 +36,8 @@ RUN apk add --no-cache \
       mopidy=3.3.0-r0 \
       ca-certificates=20220614-r0 \
       sudo=1.9.10-r0 \
+      cifs-utils \
+      keyutils \
       && ln -s /usr/lib/libpython3.10.so.1.0 /usr/lib/libpython3.10.so
 
 COPY --from=mopidy-iris /root/.local/lib/python3.10/site-packages /usr/lib/python3.10/site-packages/
@@ -44,6 +46,10 @@ COPY --from=mopidy-radionet /root/.local/lib/python3.10/site-packages /usr/lib/p
 
 RUN echo "root ALL=NOPASSWD: /usr/lib/python3.10/site-packages/mopidy_iris/system.sh" >> /etc/sudoers
 
+RUN mkdir -p /scripts
+COPY mount_smb.sh /scripts/mount_smb.sh
+RUN chmod a+x /scripts/mount_smb.sh
+
 ENTRYPOINT [ "/init" ]
-CMD []
+CMD ["/scripts/mount_smb.sh"]
 COPY root /
