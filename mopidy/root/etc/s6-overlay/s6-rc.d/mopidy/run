@@ -38,7 +38,9 @@ if [ "$(bashio::config 'custom_config')" != 'null' ]; then
 else
 
   bashio::log.info 'Apply addon settings'
-  tempio -conf /data/options.json -template /etc/mopidy-template.conf -out /etc/mopidy.conf
+  echo '{"media_folder": "$diskname"}' | \
+      tempio -template /data/options.json | \
+      tempio -template /etc/mopidy-template.conf -out /etc/mopidy.conf
 fi
 
 bashio::log.info 'Start Mopidy....'
