@@ -3,7 +3,7 @@ version: 2.2.0
 slug: mopidy
 panel_icon: mdi:music-circle
 description: Mopidy Music Server
-url: https://github.com/Poeschl/Hassio-Addons/tree/main/mopidy
+url: https://github.com/MatthewFlamm/Hassio-Addons/tree/main/mopidy
 webui: http://[HOST]:[PORT:6680]/iris
 arch:
   - armv7
