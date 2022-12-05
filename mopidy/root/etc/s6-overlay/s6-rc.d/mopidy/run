@@ -42,6 +42,6 @@ else
       tempio -template /data/options.json | \
       tempio -template /etc/mopidy-template.conf -out /etc/mopidy.conf
 fi
-
+bashio::log.info /etc/mopidy.conf
 bashio::log.info 'Start Mopidy....'
 mopidy --config /etc/mopidy.conf
