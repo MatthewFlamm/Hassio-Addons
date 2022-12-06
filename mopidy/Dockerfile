@@ -47,7 +47,7 @@ COPY --from=mopidy-radionet /root/.local/lib/python3.10/site-packages /usr/lib/p
 RUN echo "root ALL=NOPASSWD: /usr/lib/python3.10/site-packages/mopidy_iris/system.sh" >> /etc/sudoers
 
 RUN mkdir -p /scripts
-COPY mount_smb.sh /scripts/mount_smb.sh
+COPY scripts/mount_smb.sh /scripts/mount_smb.sh
 RUN chmod a+x /scripts/mount_smb.sh
 
 ENTRYPOINT [ "/init" ]
