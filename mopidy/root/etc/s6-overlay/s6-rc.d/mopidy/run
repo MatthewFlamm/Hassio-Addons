@@ -28,7 +28,7 @@ if bashio::config.has_value 'networkdisks'; then
         disk="${disk//"\040"/ }"            #replace \040 with
         diskname="${disk//\\//}"            #replace \ with /
         diskname="${diskname##*/}"
-
+fi
 mkdir -p /data/database \
     "${PLAYLIST_FOLDER}"
 
