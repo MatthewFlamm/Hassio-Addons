@@ -9,7 +9,7 @@
 #########################
 # MOUNT SMB SHARES v1.6 #
 #########################
-bashio::log.info User: $(whoami)
+bashio::log.info "User: $(whoami)"
 if bashio::config.has_value 'networkdisks'; then
 
     # Define variables
