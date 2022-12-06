@@ -67,7 +67,7 @@ if bashio::config.has_value 'networkdisks'; then
 
         # Tries to mount with default options
         # shellcheck disable=SC2140
-        mount -t cifs -o rw,username="$CIFS_USERNAME",password="$CIFS_PASSWORD$DOMAIN$PUID$PGID" "$disk" /mnt/"$diskname" 2>ERRORCODE && MOUNTED=true || MOUNTED=false
+        mount -t cifs -o rw,username="$CIFS_USERNAME",password="$CIFS_PASSWORD" "$disk" /mnt/"$diskname" 2>ERRORCODE && MOUNTED=true || MOUNTED=false
 
         # if Fail test different smb and sec versions
         if [ "$MOUNTED" = false ]; then
