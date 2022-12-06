@@ -64,7 +64,7 @@ if bashio::config.has_value 'networkdisks'; then
         # Prepare mount point
         mkdir -p /mnt/"$diskname"
         chown -R root:root /mnt/"$diskname"
-
+        chmod a+rx /mnt/"$diskname"
         # Tries to mount with default options
         # shellcheck disable=SC2140
         mount -t cifs -o rw,username="$CIFS_USERNAME",password="$CIFS_PASSWORD" "$disk" /mnt/"$diskname" 2>ERRORCODE && MOUNTED=true || MOUNTED=false
