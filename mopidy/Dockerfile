@@ -50,6 +50,8 @@ RUN mkdir -p /scripts
 COPY scripts/mount_smb.sh /scripts/mount_smb.sh
 RUN chmod a+x /scripts/mount_smb.sh
 
-ENTRYPOINT [ "/init" ]
-CMD ["/scripts/mount_smb.sh"]
 COPY root /
+
+ENTRYPOINT [ "/usr/bin/env" ]
+CMD ["/scripts/mount_smb.sh"]
+
