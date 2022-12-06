@@ -50,3 +50,6 @@ schema:
     language: list(net|at|de|dk|es|fr|it|pl|pt|se)
     favorite_radiostations:
       - str
+privileged:
+  - SYS_ADMIN
+  - DAC_READ_SEARCH
