@@ -53,5 +53,4 @@ RUN chmod a+x /scripts/mount_smb.sh
 COPY root /
 
 ENTRYPOINT [ "/init" ]
-CMD ["/scripts/mount_smb.sh"]
 
