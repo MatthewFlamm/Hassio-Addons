@@ -7,7 +7,7 @@ export LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
 bashio::log.info 'Create media folder if not existing'
 MEDIA_FOLDER=$(bashio::config 'media_folder')
 PLAYLIST_FOLDER=$(bashio::config 'playlist_folder')
-
+( exec /script/mount_smb.sh )
 if bashio::config.has_value 'networkdisks'; then
 
     # Define variables
